@@ -1,0 +1,12 @@
+Mock it up
+make a light/dark switch
+chartJS
+GSAP anims
+2 pages - main and settings and stats
+transaction adding
+make a bullet journal theme
+
+page transition: https://gsap.com/community/forums/topic/19492-page-transition/
+FLIP: https://gsap.com/ui/
+https://codepen.io/GreenSock/pen/dyBwbeR
+
