@@ -1,17 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-
-import ReactDOM from "react-dom";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Nav from "./pages/Nav";
 import "./App.css";
+import { BudgetProvider } from "./components/BudgetProvider";
 
 function App() {
   return (
-    <>
+    <BudgetProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Nav />}>
@@ -20,15 +16,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
-    </>
+    </BudgetProvider>
   );
 }
 

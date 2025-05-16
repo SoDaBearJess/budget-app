@@ -47,23 +47,26 @@ body {
 }
 
 h1 {
-  font-size: var(--header-size);
+  font-size: var(--font-size);
   line-height: 1.1;
+  margin: 0;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid #646cff;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #646cff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 button:focus,
 button:focus-visible {
@@ -75,6 +78,7 @@ nav {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
   padding: 1rem;
   font-size: var(--font-size);
   background-color: var(--bg-color);
@@ -82,18 +86,62 @@ nav {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+input {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modal */
+
+/* Modal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content input {
+  margin: 10px 0;
+}
+
+/* End Modal */
+
 /* Theme toggle */
 .theme-toggle {
   background-color: #eee;
@@ -131,62 +179,63 @@ nav {
 
 .image-content {
   width: 100%;
-  /* max-width: 800px; */
-}
-
-.image-container::before {
-  float: left;
-  padding-top: 133.76623376623376%;
-  content: "";
-}
-
-.image-container::after {
-  display: block;
-  content: "";
-  clear: both;
+  margin-top: 30px;
 }
 
 .images {
   width: 100%;
-  height: 80%;
-  position: absolute;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 8px;
+  /* height: 80%; */
+  /* position: absolute; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* display: grid;
+  grid-template-columns: 30% max-content auto auto;
+  grid-template-rows: 25% 25% 25% 25%;
+  gap: 10px;
   grid-template-areas:
     "img-2 img-1 img-1 img-1"
     "img-3 img-1 img-1 img-1"
     "img-4 img-1 img-1 img-1"
-    "img-5 img-1 img-1 img-1";
+    "img-5 img-1 img-1 img-1"; */
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.settings-label {
+  font-size: var(--font-size);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.settings-grid {
+  display: grid;
+  margin: 10px 0;
+  text-align: left;
+  grid-template-columns: 0.75fr 1fr;
+  gap: 10px;
+}
+
+.chart-container {
+  width: 200px;
+  margin: 0 auto;
 }
 
 .product {
-  background-size: 75%;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
   will-change: transform;
-}
-
-.product[data-grid="img-1"] {
-  grid-area: img-1;
-  z-index: 1;
-  cursor: default;
-}
-
-.product[data-grid="img-2"] {
-  grid-area: img-2;
-}
-
-.product[data-grid="img-2"] {
-  grid-area: img-3;
-}
-
-.product[data-grid="img-4"] {
-  grid-area: img-4;
-}
-
-.product[data-grid="img-5"] {
-  grid-area: img-5;
+  height: 400px;
+  width: 300px;
 }

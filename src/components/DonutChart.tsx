@@ -23,8 +23,8 @@ interface Graph {
   data: number[];
   graphType: keyof ChartTypeRegistry;
   styles: {
-    backgroundColor: string;
-    borderColor: string;
+    backgroundColor: string[];
+    borderColor: string[];
     borderWidth: number;
   };
   symbol: string;
@@ -76,7 +76,7 @@ export default function DonutChart({
       },
     },
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
   };
 
   // combine them for the chart config, each of these types are generic but they are not necessary.
